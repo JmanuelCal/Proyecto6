@@ -12,7 +12,11 @@ public class InventoryManager {
 			System.out.println("Valor total con IVA: " + valorTotal);
 		}
 	}
-
+	
+	private void imprimirConfirmacion(String producto) {
+        System.out.println("Stock actualizado: " + producto);
+    }
+	
 	private double calcularValorConIva(int cantidad, double precio) {
 		double neto = cantidad * precio;
 		return neto + (neto * IVA);
@@ -22,7 +26,5 @@ public class InventoryManager {
 		return cantidad > 0 && precio > 0 && precio < PRECIO_MAXIMO && producto.length() > LONGITUD_MINIMA_NOMBRE;
 	}
 	
-	private void imprimirConfirmacion(String producto) {
-        System.out.println("Stock actualizado: " + producto);
-    }
+	
 }
