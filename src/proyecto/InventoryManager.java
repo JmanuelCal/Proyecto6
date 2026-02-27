@@ -7,7 +7,7 @@ public class InventoryManager {
 
 	public void actualizarStock(String producto, int cantidad, double precio) {
 		if (esEntradaValida(producto, cantidad, precio)) {
-			System.out.println("Stock actualizado: " + producto);
+			imprimirExito(producto);
 			double valorTotal = calcularValorTotalConIva(cantidad, precio);
 			System.out.println("Valor total con IVA: " + valorTotal);
 		}
@@ -21,4 +21,8 @@ public class InventoryManager {
 	private boolean esEntradaValida(String producto, int cantidad, double precio) {
 		return cantidad > 0 && precio > 0 && precio < PRECIO_MAXIMO && producto.length() > LONGITUD_MINIMA_NOMBRE;
 	}
+	
+	private void imprimirExito(String producto) {
+        System.out.println("Stock actualizado: " + producto);
+    }
 }
