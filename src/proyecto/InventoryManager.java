@@ -6,19 +6,25 @@ public class InventoryManager {
 	private static final double IVA = 0.21;
 
 	public void actualizarStock(String producto, int cantidad, double precio) {
-		if (esEntradaValida(producto, cantidad, precio)) {
-			System.out.println("Stock actualizado: " + producto);
-			double valorTotal = calcularValorTotalConIva(cantidad, precio);
+		if (esValida(producto, cantidad, precio)) {
+			imprimirConfirmacion(producto);
+			double valorTotal = calcularValorConIva(cantidad, precio);
 			System.out.println("Valor total con IVA: " + valorTotal);
 		}
 	}
-
-	private double calcularValorTotalConIva(int cantidad, double precio) {
-		double valorTotal = cantidad * precio + cantidad * precio * IVA;
-		return valorTotal;
+	
+	private void imprimirConfirmacion(String producto) {
+        System.out.println("Stock actualizado: " + producto);
+    }
+	
+	private double calcularValorConIva(int cantidad, double precio) {
+		double neto = cantidad * precio;
+		return neto + (neto * IVA);
 	}
 
-	private boolean esEntradaValida(String producto, int cantidad, double precio) {
+	private boolean esValida(String producto, int cantidad, double precio) {
 		return cantidad > 0 && precio > 0 && precio < PRECIO_MAXIMO && producto.length() > LONGITUD_MINIMA_NOMBRE;
 	}
+	
+	
 }
