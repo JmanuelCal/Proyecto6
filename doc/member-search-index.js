@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"proyecto","c":"InventoryManager","l":"actualizarStock(String, int, double)","u":"actualizarStock(java.lang.String,int,double)"},{"p":"proyecto","c":"InventoryManager","l":"InventoryManager()","u":"%3Cinit%3E()"}];updateSearchResults();
